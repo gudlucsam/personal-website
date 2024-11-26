@@ -50,6 +50,7 @@ const BlogCardWrapper = styled(motion.div)`
 const BlogTitle = styled(Typography)`
   color: #0f172a;
   font-weight: 600;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
   transition: color 0.2s ease;
 `;
@@ -66,24 +67,21 @@ const BlogExcerpt = styled(Typography)`
   line-height: 1.6;
 `;
 
-const TagChip = styled.span`
+const BlogTag = styled(Box)`
   display: inline-block;
-  padding: 0.25rem 0.75rem;
-  margin: 0.25rem;
-  background: rgba(37, 99, 235, 0.1);
+  background-color: rgba(37, 99, 235, 0.1);
   color: #2563eb;
-  border-radius: 16px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
   font-size: 0.75rem;
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: rgba(37, 99, 235, 0.15);
-  }
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 `;
 
 const GradientText = styled.span`
-  background: linear-gradient(135deg, #2563eb, #14b8a6);
+  background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
@@ -229,7 +227,7 @@ const Home = () => {
                   </BlogExcerpt>
                   <Box sx={{ mt: 2 }}>
                     {post.tags.map((tag, i) => (
-                      <TagChip key={i}>{tag}</TagChip>
+                      <BlogTag key={i}>{tag}</BlogTag>
                     ))}
                   </Box>
                 </BlogCard>
