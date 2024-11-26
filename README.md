@@ -63,7 +63,79 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This website is deployed using Netlify for continuous deployment and hosting.
+
+### Deployment Setup
+
+1. **Prerequisites**
+   - GitHub repository: https://github.com/gudlucsam/personal-website
+   - Node.js and npm installed
+   - Netlify account
+
+2. **Local Development**
+   ```bash
+   # Install dependencies
+   npm install
+
+   # Run development server
+   npm start
+   ```
+
+3. **Build**
+   ```bash
+   # Create production build
+   npm run build
+   ```
+
+### Netlify Deployment
+
+1. **Initial Setup**
+   - Sign up/login to [Netlify](https://www.netlify.com/)
+   - Click "Add new site" > "Import an existing project"
+   - Choose "Deploy with GitHub"
+   - Select the repository: `gudlucsam/personal-website`
+
+2. **Build Settings**
+   - Branch to deploy: `main`
+   - Base directory: (leave empty)
+   - Build command: `npm run build`
+   - Publish directory: `build`
+
+3. **Domain Configuration**
+   - After deployment, go to Site settings > Domain management
+   - Click "Change site name" to set a custom subdomain
+   - Format: `your-chosen-name.netlify.app`
+
+4. **Continuous Deployment**
+   - Automatically deploys when changes are pushed to main branch
+   - Build logs available in the Netlify dashboard
+   - Deploy previews for pull requests
+
+### Environment Variables
+   - Any sensitive data should be added in Netlify's Environment Variables section
+   - Site settings > Build & deploy > Environment
+
+### Custom Domain Setup (Optional)
+1. Purchase a domain from a domain registrar
+2. Add custom domain in Netlify:
+   - Site settings > Domain management > Add custom domain
+   - Follow DNS configuration instructions
+   - Netlify automatically handles SSL/HTTPS
+
+### Deployment Configuration
+The `netlify.toml` file in the root directory contains deployment settings:
+```toml
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+This ensures proper routing for the React application and correct build settings.
 
 ### `npm run build` fails to minify
 
