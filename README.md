@@ -65,6 +65,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This website is deployed using Netlify for continuous deployment and hosting.
 
+## Live Website
+The website is deployed and accessible at: [https://atules.netlify.app](https://atules.netlify.app)
+
 ### Deployment Setup
 
 1. **Prerequisites**
