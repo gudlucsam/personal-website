@@ -126,7 +126,7 @@ const Home = () => {
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <Typography variant="h2" gutterBottom>
-              <GradientText>Hello, World</GradientText> 👋
+              <GradientText>Hello, World</GradientText> 👋🏾
             </Typography>
             <Typography variant="h4" gutterBottom sx={{ color: '#475569' }}>
               I'm Samuel, a Software Engineer & Web Developer
