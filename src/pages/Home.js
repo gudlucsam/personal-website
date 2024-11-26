@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Container, Button, Grid, Stack, IconButton } from '@mui/material';
-import { GitHub, LinkedIn, Twitter } from '@mui/icons-material';
+import { GitHub, LinkedIn, Twitter, KeyboardArrowDown } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
