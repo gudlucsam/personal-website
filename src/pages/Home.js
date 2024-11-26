@@ -97,15 +97,17 @@ const ScrollText = styled(Typography)`
   margin-bottom: 0.5rem;
 `;
 
-const ScrollIndicator = styled(motion.div)`
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+const ScrollIndicator = styled(Box)`
+  position: relative;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
+  justify-content: center;
+  margin-top: 2rem;
+  
+  @media (max-width: 600px) {
+    position: static;
+    margin-top: 3rem;
+  }
 `;
 
 const Home = () => {
@@ -117,7 +119,14 @@ const Home = () => {
   const recentPosts = blogPosts.slice(0, 3);
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 12, mb: 8 }}>
+    <Container 
+      maxWidth="lg" 
+      sx={{ 
+        mt: { xs: 8, sm: 12 }, 
+        mb: 8,
+        px: { xs: 2, sm: 3 }
+      }}
+    >
       <IntroCard
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -256,24 +265,19 @@ const Home = () => {
         </Grid>
       </Box>
 
-      <ScrollIndicator
-        onClick={scrollToBlogs}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ 
-          opacity: 1, 
-          y: 0,
-          transition: { delay: 1 }
-        }}
-      >
-        <ScrollText>Scroll to see recent blogs</ScrollText>
+      <ScrollIndicator>
         <motion.div
-          animate={{ 
+          animate={{
             y: [0, 10, 0],
             transition: {
               duration: 1.5,
               repeat: Infinity,
               ease: "easeInOut"
             }
+          }}
+          style={{
+            position: 'relative',
+            zIndex: 1
           }}
         >
           <KeyboardArrowDown 
