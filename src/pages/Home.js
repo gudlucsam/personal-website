@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Container, Button, Grid, Stack, IconButton } from '@mui/material';
-import { GitHub, LinkedIn, Email, KeyboardArrowDown, Twitter } from '@mui/icons-material';
+import { GitHub, LinkedIn, Twitter } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
@@ -109,24 +109,6 @@ const ScrollIndicator = styled(motion.div)`
 `;
 
 const Home = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-    },
-  };
-
   const scrollToBlogs = () => {
     const blogsSection = document.getElementById('recent-blogs');
     blogsSection.scrollIntoView({ behavior: 'smooth' });
