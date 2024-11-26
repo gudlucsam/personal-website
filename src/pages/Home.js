@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Container, Button, Grid, Stack, IconButton } from '@mui/material';
-import { GitHub, LinkedIn, Twitter, KeyboardArrowDown } from '@mui/icons-material';
+import { GitHub, LinkedIn, Twitter } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
@@ -55,10 +55,9 @@ const BlogTitle = styled(Typography)`
 `;
 
 const BlogDate = styled(Typography)`
-  color: #64748b;
-  font-size: 0.875rem;
   font-family: 'SF Mono', 'Fira Code', monospace;
-  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
 `;
 
 const BlogExcerpt = styled(Typography)`
@@ -90,32 +89,7 @@ const GradientText = styled.span`
   font-weight: 600;
 `;
 
-const ScrollText = styled(Typography)`
-  color: #475569;
-  font-family: 'SF Mono', 'Fira Code', monospace;
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
-`;
-
-const ScrollIndicator = styled(Box)`
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  
-  @media (max-width: 600px) {
-    position: static;
-    margin-top: 3rem;
-  }
-`;
-
 const Home = () => {
-  const scrollToBlogs = () => {
-    const blogsSection = document.getElementById('recent-blogs');
-    blogsSection.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const recentPosts = blogPosts.slice(0, 3);
 
   return (
@@ -264,31 +238,6 @@ const Home = () => {
           ))}
         </Grid>
       </Box>
-
-      <ScrollIndicator>
-        <motion.div
-          animate={{
-            y: [0, 10, 0],
-            transition: {
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }
-          }}
-          style={{
-            position: 'relative',
-            zIndex: 1
-          }}
-        >
-          <KeyboardArrowDown 
-            sx={{ 
-              color: '#2563eb',
-              fontSize: '2rem',
-              opacity: 0.8
-            }} 
-          />
-        </motion.div>
-      </ScrollIndicator>
     </Container>
   );
 };
