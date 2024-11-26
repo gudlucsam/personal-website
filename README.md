@@ -68,3 +68,67 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Adding New Blog Posts
+
+To add a new blog post to the website:
+
+1. Navigate to `src/data/blogPosts.js`
+2. Add a new object to the `blogPosts` array following this structure:
+
+```javascript
+{
+  id: "unique-post-id",  // Use a unique identifier
+  title: "Your Blog Post Title",
+  date: "YYYY-MM-DD",    // Date in ISO format
+  excerpt: "A brief summary of your blog post (1-2 sentences)",
+  content: `
+    Your full blog post content here. 
+    You can use markdown syntax for formatting:
+    
+    # Headers
+    ## Subheaders
+    
+    - Bullet points
+    - Lists
+    
+    \`\`\`javascript
+    // Code blocks
+    const example = "Hello World";
+    \`\`\`
+    
+    > Blockquotes
+    
+    **Bold text** and *italic text*
+  `,
+  tags: ["tag1", "tag2"],  // Relevant categories for your post
+  readTime: "X min read"   // Estimated reading time
+}
+```
+
+3. The post will automatically appear in:
+   - The blog list page
+   - Recent posts section on the home page (if it's one of the 3 most recent)
+   - The individual blog post page will be generated automatically
+
+### Best Practices for Blog Posts
+
+1. **Images**
+   - Store blog images in `public/images/blog/`
+   - Reference them in your content using: `/images/blog/your-image.jpg`
+
+2. **Formatting**
+   - Use markdown for consistent formatting
+   - Break long posts into sections with headers
+   - Include code snippets where relevant
+
+3. **Tags**
+   - Use existing tags when possible
+   - Keep tags relevant to the content
+   - Use lowercase for consistency
+
+4. **Content Guidelines**
+   - Keep excerpts concise (150-200 characters)
+   - Include relevant code examples
+   - Add proper attribution for any external content
+   - Proofread before publishing
